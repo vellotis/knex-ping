@@ -1,5 +1,3 @@
-var errors = require('./errors')
-
 import { extend, pick, isFunction } from 'lodash'
 
 module.exports = function(origClient) {
