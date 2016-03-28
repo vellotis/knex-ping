@@ -108,7 +108,7 @@ describe('Unit tests', function() {
         Knex.client.acquireRawConnection = function() {
           spies.acquireRawConnection()
           return new Knex.Promise(function(resolver, rejecter) {
-            process.nextTick(function(){ resolver(connection) })
+            setImmediate(function(){ resolver(connection) })
           })
         }
         spies.destroyRawConnection.withArgs(connection, sinon.match.func).yields(Knex.Promise.resolve(null))
