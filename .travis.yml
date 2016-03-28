@@ -10,6 +10,7 @@ node_js:
   - '5'
 
 before_script:
+  - npm run babel
   - mysql -e 'create database knex_test;'
 
 notifications:

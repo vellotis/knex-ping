@@ -4,7 +4,7 @@
   "description": "A plugin for Knex.js to make it throw more generic errors.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node_modules/.bin/mocha test/index.js",
     "babel": "node_modules/.bin/babel -L -D src/ --out-dir lib/",
     "prepublish": "npm run babel"
   },
