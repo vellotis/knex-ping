@@ -9,9 +9,14 @@ module.exports.attach = function(knex, handler) {
 
   var client = Knex.client
   var dialectName = client.dialect
-  var dialectOverrides = require('./dialects/' + dialectName)(client)
   
-  assign(client, dialectOverrides)
+  try {
+  	var dialectOverrides = require('./dialects/' + dialectName)(client)
+  	
+  	assign(client, dialectOverrides)
+  } catch (err) {
+  	console.warn("knex-ping not implemented for dialect: " + dialectName)
+  }
 
   return Knex
 }
